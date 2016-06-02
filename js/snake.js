@@ -41,7 +41,7 @@ const Snake = (function() {
       return;
     } else if (check == 2) { // hit food
       score++;
-      SPEED--; //make faster
+      makeFaster();
       updateScore();
       createBlock(0, 0)
       placeFood();
@@ -59,6 +59,21 @@ const Snake = (function() {
     tail = tail.next;
 
     turned = false;
+
+  }
+
+  function makeFaster() {
+
+    if (SPEED > 35) {
+      SPEED = SPEED-1;
+    }
+    //updates loop
+    window.clearInterval(loop);
+
+    //hacky way to delay the loop.  DONT DO THIS.  Its is stupid.  NoOp
+    setTimeout(Function.prototype, 10000);
+
+    loop = setInterval(update, SPEED);
   }
 
   function updateScore() {
@@ -91,7 +106,7 @@ const Snake = (function() {
     $("#message").show();
     playSound(endSound);
     score = 0;
-    updateScore();
+    SPEED = 100;   //reset speed
     set = false;
   }
 
@@ -254,6 +269,7 @@ const Snake = (function() {
 
 
     score = 0;
+    updateScore();
 
     width = 0; // number of tiles across
     height = 0; // number of tiles top to bottom
