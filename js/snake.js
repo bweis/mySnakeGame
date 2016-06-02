@@ -79,10 +79,8 @@ const Snake = (function() {
   function gameOver() {
     stopGame();
     $("#message").empty().append("Game Over");
-
     $(".block").css("zIndex", 0);
     $("#message").css("zIndex", 1);
-
     $("#message").show();
 
     score = 0;
@@ -168,7 +166,11 @@ const Snake = (function() {
       setup();
     } else if (set && !running) {
       startGame();
+      $("#message").empty();
+      $("#message").hide();
     } else if (set && running) {
+      $("#message").empty().append("Paused");
+      $("#message").show();
       stopGame();
     }
   }
@@ -267,6 +269,10 @@ const Snake = (function() {
     blocks = [];
     $("#message").empty();
     $("#message").hide();
+
+    //message appears in front of snake
+    $(".block").css("zIndex", 0);
+    $("#message").css("zIndex", 1);
 
     // resize window
     resizeWindow();
