@@ -1,11 +1,8 @@
-// cheat plugin interface
-var Cheat;
-
 // snake game logic
 const Snake = (function() {
 
 
-  var SPEED = 50; // milliseconds between update.
+  var SPEED = 100; // milliseconds between update.
   var SIZE = 30; // block size
   var LENGTH = 5; // length of the snake initially
 
@@ -24,10 +21,10 @@ const Snake = (function() {
 
   var direction; // direction to update in
   var blocks;
-
+  
   var tail; // pointer to the tail block
   var head; // pointer to head block
-
+ 
   function update() {
 
     // set new position
@@ -44,6 +41,7 @@ const Snake = (function() {
       updateScore();
       createBlock(0, 0)
       placeFood();
+      incrementSpeed();
     }
 
     // move tail block to front
@@ -86,6 +84,11 @@ const Snake = (function() {
     score = 0;
     updateScore();
     set = false;
+  }
+  
+  function incrementSpeed() {
+    speed--;
+    //Lower speed variable means faster
   }
 
   function checkPosition(x, y) {
