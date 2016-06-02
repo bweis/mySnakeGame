@@ -21,10 +21,13 @@ const Snake = (function() {
 
   var direction; // direction to update in
   var blocks;
-  
+
   var tail; // pointer to the tail block
   var head; // pointer to head block
- 
+
+  var blip = new Audio("media/blip.wav");
+  var endSound = new Audio("media/endSound.wav");
+
   function update() {
 
     // set new position
@@ -42,6 +45,7 @@ const Snake = (function() {
       updateScore();
       createBlock(0, 0)
       placeFood();
+      playSound(blip);
     }
 
     // move tail block to front
@@ -59,6 +63,11 @@ const Snake = (function() {
 
   function updateScore() {
     $("#score").empty().append(score);
+  }
+
+  function playSound(sound) {
+    sound.play();
+    sound.currentTime = 0;
   }
 
   function placeFood() {
@@ -80,12 +89,12 @@ const Snake = (function() {
     $(".block").css("zIndex", 0);
     $("#message").css("zIndex", 1);
     $("#message").show();
-
+    playSound(endSound);
     score = 0;
     updateScore();
     set = false;
   }
-  
+
   function checkPosition(x, y) {
     // check to see if it's in the box
     if (x < 0 || x >= width || y < 0 || y >= height) return 1;
