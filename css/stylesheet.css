@@ -1,0 +1,85 @@
+body {
+  font-family: Arial;
+  font-size: 20px;
+  color: white;
+}
+.board {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  box-sizing: border-box;
+  border: 1px solid white;
+}
+.pane {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 70%;
+  width: 100%;
+  background: black;
+}
+.block {
+  position: absolute;
+  background-color: white;
+  border: 1px solid black;
+  box-sizing: border-box;
+  border-radius: 100%;
+}
+.food {
+  background-color: red;
+  border-radius: 100%;
+}
+.message {
+  position: absolute;
+  height: 400px;
+  width: 800px;
+  margin-left: -400px;
+  margin-top: -200px;
+  top: 50%;
+  left: 50%;
+  line-height: 400px;
+  font-size: 100px;
+  text-align: center;
+  text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+}
+.score {
+  position: relative;
+  height: 5%;
+  width:100%; /* 70% of the parent*/
+  margin:10px auto;
+
+  font-size: 30px;
+  text-align: center;
+  text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+}
+.board {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  box-sizing: border-box;
+  border: 1px solid white;
+}
+.pane {
+  position: absolute;
+  top: 0;
+  background: black;
+  overflow: hidden;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.title {
+  position: relative;
+  background: black;
+  padding: 0 20px;
+  color: red;
+  border: 1px solid white;
+  font-size: 25px;
+}
+.red-border {
+  border: 1px solid red;
+}
+.hidden {
+  display: none;
+  visibility: hidden;
+}
