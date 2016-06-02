@@ -38,10 +38,10 @@ const Snake = (function() {
       return;
     } else if (check == 2) { // hit food
       score++;
+      SPEED--; //make faster
       updateScore();
       createBlock(0, 0)
       placeFood();
-      incrementSpeed();
     }
 
     // move tail block to front
@@ -86,11 +86,6 @@ const Snake = (function() {
     set = false;
   }
   
-  function incrementSpeed() {
-    speed--;
-    //Lower speed variable means faster
-  }
-
   function checkPosition(x, y) {
     // check to see if it's in the box
     if (x < 0 || x >= width || y < 0 || y >= height) return 1;
